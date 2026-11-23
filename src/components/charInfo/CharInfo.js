@@ -4,6 +4,8 @@ import ErrorMessage from '../errorMessage/ErrorMessage';
 import Skeleton from '../skeleton/Skeleton';
 import './charInfo.scss';
 import MarvelService from '../../services/MarvelService';
+import PropTypes from 'prop-types'; // ES6
+
 
 class CharInfo extends Component {
 
@@ -103,13 +105,13 @@ const View = ({ char }) => {
             </div>
             <div className="char__comics">Comics:</div>
             <ul className="char__comics-list">
-                {comics.length > 0 ? null: 'There is no comics with this character'}
+                {comics.length > 0 ? null : 'There is no comics with this character'}
                 {
                     comics.map((item, i) => {
                         if (i > 9) return null;
                         return (
                             <li key={i} className="char__comics-item">
-                                {item} 
+                                {item}
                             </li>
                         )
                     })
@@ -118,6 +120,10 @@ const View = ({ char }) => {
             </ul>
         </>
     )
+}
+
+CharInfo.propTypes = {
+    charId: PropTypes.string
 }
 
 export default CharInfo;
